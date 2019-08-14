@@ -1,0 +1,7 @@
+<filesMatch ".(ico|jpg|jpeg|png|gif|css|js|html)$">
+  Header set Cache-Control "max-age=86400, public"
+</filesMatch>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^localhost$ [NC]
+RewriteCond %{HTTPS} on
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1 [L,R]

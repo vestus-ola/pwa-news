@@ -1,0 +1,13 @@
+{
+    "articles":[
+        {
+            "title": "You are currently offline.",
+            "urlToImage": "images/offline.png",
+            "author": "Network Error",
+            "source":{
+                "id":"",
+                "name":"Offline"
+            }
+        }
+    ]
+}

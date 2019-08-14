@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NEWS API</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="bootstrap/css/style.min.css" media="all">
+  <link rel="manifest" href="manifest.json">
+  <link rel="short icon" href="images/icons/icon-72x72.png">
+  <!-- icon in the highest resolution we need it for -->
+  <link rel="icon" sizes="192x192" href="images/icons/icon-192x192.png">
+
+  <!-- reuse same icon for Safari -->
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="NEWS">
+  <meta name="apple-mobile-web-app-title" content="NEWS">
+  <meta name="theme-color" content="#666">
+  <meta name="msapplication-navbutton-color" content="#666">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="keywords" content="NEWS API, News, api for news, news api">
+  <meta name="description" content="A PWA NEWS application">
+  <meta name="author" content="Oyeleye Festus Olatunbosun">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <b style="color:#fff;">NEWS</b>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-8">
+          <form method="POST">
+            <select id="sourceSelector" name="sourceSelector" class="form-control"></select>
+          </form>
+          <br>
+        </div>
+      </div>
+      <div class="row">
+        <main id="main-data"></main>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container" style="margin-top:20px;">
+      <div class="row">
+        <div className="col-md-12">
+          <div id="loader"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div className="col-md-12">
+          <div id="loading-end" class="text-danger text-center" style="display: none">
+            <h3>No More Data!!!</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="bootstrap/js/jquery-3-3-1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
