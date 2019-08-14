@@ -1,18 +1,3 @@
-if ("serviceWorker" in navigator) {
-  if (navigator.serviceWorker.controller) {
-    console.log("[PWA Builder] active service worker found, no need to register");
-  } else {
-    // Register the service worker
-    navigator.serviceWorker
-    .register("sw.js", {
-      scope: "./"
-    })
-    .then(function (reg) {
-      console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-    });
-  }
-}
-
 const sourceSelector = document.querySelector('#sourceSelector');
 let defaultSource = 'bbc-sport';
 const apiKey = 'your-newsapi-apiKey';
@@ -23,11 +8,11 @@ let page = 1;
 let maxPage = 6;
 let articleArray = [];
 
-window.addEventListener('load', async e => {
+addEventListener('load', async () => {
   getNewsFromSources();
   await updateSelectSource();
 
-  sourceSelector.addEventListener('change', e => {
+  sourceSelector.addEventListener('change', function(e) {
     articleArray = [];
     isLoading = true;
     document.getElementById('loader').style.display = 'block';
@@ -37,6 +22,21 @@ window.addEventListener('load', async e => {
     page = 1;
     getNewsFromSources(e.target.value);
   })
+
+  if ("serviceWorker" in navigator) {
+    if (navigator.serviceWorker.controller) {
+      console.log("[PWA Builder] active service worker found, no need to register");
+    } else {
+      // Register the service worker
+      navigator.serviceWorker
+      .register("sw.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+      });
+    }
+  }
 });
 
 async function getNewsFromSources(src = defaultSource, page = null, pageSize = 15) {
@@ -110,7 +110,7 @@ function convertToArticleFormat(article) {
   return res;
 }
 
-window.addEventListener('scroll', scrollPageToBottom);
+addEventListener('scroll', scrollPageToBottom);
 
 function scrollPageToBottom() {
   var scrollHeight = document.body.scrollHeight;
