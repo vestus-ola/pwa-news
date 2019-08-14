@@ -15,7 +15,7 @@ if ("serviceWorker" in navigator) {
 
 const sourceSelector = document.querySelector('#sourceSelector');
 let defaultSource = 'bbc-sport';
-const apiKey = '808190cc907b400d9c2035f8ba6512c4';
+const apiKey = 'your-newsapi-apiKey';
 const main = document.querySelector('main');
 const pageSize = 15;
 let isLoading = true;
