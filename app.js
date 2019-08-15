@@ -1,5 +1,5 @@
 const sourceSelector = document.querySelector('#sourceSelector');
-let defaultSource = 'espn';
+let defaultSource = 'abc-news';
 const apiKey = '808190cc907b400d9c2035f8ba6512c4';
 const main = document.querySelector('main');
 const pageSize = 15;
@@ -109,7 +109,7 @@ addEventListener('scroll', scrollPageToBottom);
 function scrollPageToBottom() {
   var scrollHeight = document.body.scrollHeight;
   var scrollPosition = window.scrollY + window.innerHeight;
-  if ((((scrollHeight - scrollPosition) > 500) &&  ((scrollHeight - scrollPosition) <= 1200)) && !isLoading) {
+  if ((((scrollHeight - scrollPosition) > 200) &&  ((scrollHeight - scrollPosition) <= 1200)) && !isLoading) {
     document.getElementById('loader').style.display = 'block';
     isLoading = true;
     var incPage = page + 1;
