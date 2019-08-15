@@ -109,7 +109,6 @@ addEventListener('scroll', scrollPageToBottom);
 function scrollPageToBottom() {
   var scrollHeight = document.body.scrollHeight;
   var scrollPosition = window.scrollY + window.innerHeight;
-  console.log(scrollHeight - scrollPosition)
   if ((((scrollHeight - scrollPosition) > 0) &&  ((scrollHeight - scrollPosition) <= 650)) && !isLoading) {
     document.getElementById('loader').style.display = 'block';
     isLoading = true;
