@@ -12,7 +12,7 @@ addEventListener('load', async () => {
   getNewsFromSources();
   await updateSelectSource();
 
-  sourceSelector.addEventListener('change', function(e) {
+  sourceSelector.addEventListener('change', function (e) {
     articleArray = [];
     isLoading = true;
     document.getElementById('loader').style.display = 'block';
@@ -29,12 +29,12 @@ addEventListener('load', async () => {
     } else {
       // Register the service worker
       navigator.serviceWorker
-      .register("sw.js", {
-        scope: "./"
-      })
-      .then(function (reg) {
-        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-      });
+        .register("sw.js", {
+          scope: "./"
+        })
+        .then(function (reg) {
+          console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+        });
     }
   }
 });
@@ -115,7 +115,7 @@ addEventListener('scroll', scrollPageToBottom);
 function scrollPageToBottom() {
   var scrollHeight = document.body.scrollHeight;
   var scrollPosition = window.scrollY + window.innerHeight;
-  if (((scrollHeight - scrollPosition) <= 200) && !isLoading) {
+  if (((scrollHeight - scrollPosition) >= 300 && (scrollHeight - scrollPosition) <= 800) && !isLoading) {
     document.getElementById('loader').style.display = 'block';
     isLoading = true;
     var incPage = page + 1;
