@@ -44,6 +44,7 @@ async function getNewsFromSources(src = defaultSource, page = null, pageSize = 1
     const res = await fetch(`https://newsapi.org/v2/everything?language=en&sortBy=publishedAt&sources=${src}&page=${page}&pageSize=${pageSize}&apiKey=${apiKey}`)
     const json = await res.json();
     articleArray.push(json.articles)
+    console.log(json.articles);
     if (articleArray.length > 0) {
       $('#main-data').append(convertToArticleFormat(articleArray[articleArray.length - 1]));
     }
