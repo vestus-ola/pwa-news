@@ -73,7 +73,7 @@ function convertToArticleFormat(article) {
                   <div class="col-md-4">
                       <div class="card card-default">
                           <div class="card-img" style="margin:0 auto;">
-                              <img class="img-responsive" src="${value.urlToImage}" style="width:50%;max-height:220px;height:auto;" alt="${value.title}"/>
+                              <img class="img-responsive" src="${value.urlToImage}" style="width:90%;height:auto;" alt="${value.title}"/>
                           </div>
                           <div class="card-body">
                               <h4><a href="${value.url}" class="text-center">${value.title}</a></h4>
@@ -89,7 +89,7 @@ function convertToArticleFormat(article) {
         res += `<div class="col-md-4">
                   <div class="card card-default">
                     <div class="card-img" style="margin:0 auto;">
-                        <img class="img-responsive" src="${value.urlToImage}" style="width:50%;max-height:220px;height:auto;" alt="${value.title}"/>
+                        <img class="img-responsive" src="${value.urlToImage}" style="width:90%;height:auto;" alt="${value.title}"/>
                     </div>
                     <div class="card-body">
                         <h4><a href="${value.url}" class="text-center">${value.title}</a></h4>
