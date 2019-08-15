@@ -1,5 +1,5 @@
 const sourceSelector = document.querySelector('#sourceSelector');
-let defaultSource = 'bbc-sport';
+let defaultSource = 'espn';
 const apiKey = '808190cc907b400d9c2035f8ba6512c4';
 const main = document.querySelector('main');
 const pageSize = 15;
@@ -12,7 +12,7 @@ addEventListener('load', async () => {
   getNewsFromSources();
   await updateSelectSource();
 
-  sourceSelector.addEventListener('change', function (e) {
+  sourceSelector.addEventListener('change', function  (e) {
     articleArray = [];
     isLoading = true;
     document.getElementById('loader').style.display = 'block';
@@ -29,12 +29,12 @@ addEventListener('load', async () => {
     } else {
       // Register the service worker
       navigator.serviceWorker
-        .register("sw.js", {
-          scope: "./"
-        })
-        .then(function (reg) {
-          console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-        });
+          .register("sw.js", {
+            scope: "./"
+          })
+          .then(function (reg) {
+            console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+          });
     }
   }
 });
@@ -72,9 +72,6 @@ function convertToArticleFormat(article) {
         res += `
                   <div class="col-md-4">
                       <div class="card card-default">
-                          <div class="card-img" style="margin:0 auto;">
-                              <img class="img-responsive" src="${value.urlToImage}" style="width:100%;height:auto;" alt="${value.title}"/>
-                          </div>
                           <div class="card-body">
                               <h4><a href="${value.url}" class="text-center">${value.title}</a></h4>
                           </div>
@@ -88,9 +85,6 @@ function convertToArticleFormat(article) {
       } else {
         res += `<div class="col-md-4">
                   <div class="card card-default">
-                    <div class="card-img" style="margin:0 auto;">
-                        <img class="img-responsive" src="${value.urlToImage}" style="width:100%;height:auto;" alt="${value.title}"/>
-                    </div>
                     <div class="card-body">
                         <h4><a href="${value.url}" class="text-center">${value.title}</a></h4>
                     </div>
@@ -115,8 +109,8 @@ addEventListener('scroll', scrollPageToBottom);
 function scrollPageToBottom() {
   var scrollHeight = document.body.scrollHeight;
   var scrollPosition = window.scrollY + window.innerHeight;
-  if ((((scrollHeight - scrollPosition) > 500) && ((scrollHeight - scrollPosition) <= 1200)) && !isLoading) {
-    document.getElementById('loader').style.display = 'block';
+  if ((((scrollHeight - scrollPosition) > 500) &&  (scrollHeight - scrollPosition) <= 1200)) && !isLoading) {
+    document.getElementBy Id('loader').st yle.display = 'block';
     isLoading = true;
     var incPage = page + 1;
     page = incPage;
