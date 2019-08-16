@@ -1,21 +1,19 @@
 // Static files to cache
 const staticFiles = [
-  './',
-  './bootstrap/css/bootstrap.min.css',
-  './bootstrap/css/style.min.css',
-  './bootstrap/js/jquery-3-3-1.min.js',
-  './bootstrap/js/bootstrap.min.js',
-  './app.js',
-  './images/icons/icon-72x72.png',
-  './images/icons/icon-192x192.png',
-  './images/offline.png',
-  './fallback.json',
-  './bootstrap/fonts/glyphicons-halflings-regular.eot',
-  './bootstrap/fonts/glyphicons-halflings-regular.svg',
-  './bootstrap/fonts/glyphicons-halflings-regular.ttf',
-  './bootstrap/fonts/glyphicons-halflings-regular.woff',
-  './bootstrap/fonts/glyphicons-halflings-regular.woff2'
+  '/',
+  '/app.js',
+  'https://fonts.googleapis.com/css?family=Nunito:200,600',
+  'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css',
+  'https://code.jquery.com/jquery-3.4.1.min.js',
+  'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',
+  '/assets/css/style.min.css',
+  '/images/icons/icon-72x72.png',
+  '/images/icons/icon-192x192.png',
+  '/images/offline.png',
+  '/fallback.json'
 ];
+
+// const CACHE_NAME = "pwa-cache::v1";
 
 const staticCache = "static-cache";
 const dynamicCache = 'dynamic-cache';

@@ -12,7 +12,7 @@ addEventListener('load', async () => {
   getNewsFromSources();
   await updateSelectSource();
 
-  sourceSelector.addEventListener('change', function  (e) {
+  sourceSelector.addEventListener('change', function (e) {
     articleArray = [];
     isLoading = true;
     document.getElementById('loader').style.display = 'block';
@@ -29,12 +29,12 @@ addEventListener('load', async () => {
     } else {
       // Register the service worker
       navigator.serviceWorker
-          .register("sw.js", {
-            scope: "./"
-          })
-          .then(function (reg) {
-            console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-          });
+        .register("sw.js", {
+          scope: "./"
+        })
+        .then(function (reg) {
+          console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+        });
     }
   }
 });
@@ -44,7 +44,6 @@ async function getNewsFromSources(src = defaultSource, page = null, pageSize = 1
     const res = await fetch(`https://newsapi.org/v2/everything?language=en&sortBy=publishedAt&sources=${src}&page=${page}&pageSize=${pageSize}&apiKey=${apiKey}`)
     const json = await res.json();
     articleArray.push(json.articles)
-    console.log(json.articles);
     if (articleArray.length > 0) {
       $('#main-data').append(convertToArticleFormat(articleArray[articleArray.length - 1]));
     }
@@ -69,31 +68,49 @@ function convertToArticleFormat(article) {
   var res = '';
   if (article.length > 0) {
     article.forEach(function (value, k) {
-      if ((k + 1) % 3 === 0) {
-        res += `
-                  <div class="col-md-4">
-                      <div class="card card-default">
-                          <div class="card-body">
-                              <h4><a href="${value.url}" class="text-center">${value.title}</a></h4>
-                          </div>
-                          <div class="card-footer">
-                              <h6><i class="glyphicon glyphicon-user"></i> ${value.author === null ? 'Anonymous' : value.author}</h6>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="clearfix"></div>
-              `;
-      } else {
-        res += `<div class="col-md-4">
+      if (value.source.name == "offline") {
+        maxPage = 0;
+        res = `<div class="col-md-12" style="margin-top:50px;">
                   <div class="card card-default">
                     <div class="card-body">
-                        <h4><a href="${value.url}" class="text-center">${value.title}</a></h4>
+                      <img class="img-responsive" src="${value.urlToImage}" style="margin-right:auto;margin-left:auto; text-align:center" />
+                        <h3 style="color:red;font-weight:bold;text-align:center;">${value.title}</h3>
                     </div>
                     <div class="card-footer">
-                        <h6><i class="glyphicon glyphicon-user"></i> ${value.author === null ? 'Anonymous' : value.author}</h6>
+                        <p style="text-align:center;color:#000;font-weight:600;">${value.description}</p>
                     </div>
                 </div>
             </div>`;
+        document.getElementById('loader').style.display = 'none';
+        isLoading = false;
+        return res;
+      } else {
+        if ((k + 1) % 3 === 0) {
+          res += `
+                    <div class="col-md-4">
+                        <div class="card card-default">
+                            <div class="card-body">
+                                <h4><a href="${value.url}" class="text-center">${value.title}</a></h4>
+                            </div>
+                            <div class="card-footer">
+                                <h6><i class="glyphicon glyphicon-user"></i> ${value.author === null ? 'Anonymous' : value.author}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                `;
+        } else {
+          res += `<div class="col-md-4">
+                    <div class="card card-default">
+                      <div class="card-body">
+                          <h4><a href="${value.url}" class="text-center">${value.title}</a></h4>
+                      </div>
+                      <div class="card-footer">
+                          <h6><i class="glyphicon glyphicon-user"></i> ${value.author === null ? 'Anonymous' : value.author}</h6>
+                      </div>
+                  </div>
+              </div>`;
+        }
       }
     });
     document.getElementById('loader').style.display = 'none';
@@ -110,7 +127,7 @@ addEventListener('scroll', scrollPageToBottom);
 function scrollPageToBottom() {
   var scrollHeight = document.body.scrollHeight;
   var scrollPosition = window.scrollY + window.innerHeight;
-  if ((((scrollHeight - scrollPosition) > 0) &&  ((scrollHeight - scrollPosition) <= 650)) && !isLoading) {
+  if ((((scrollHeight - scrollPosition) > 0) && ((scrollHeight - scrollPosition) <= 650)) && !isLoading) {
     document.getElementById('loader').style.display = 'block';
     isLoading = true;
     var incPage = page + 1;
