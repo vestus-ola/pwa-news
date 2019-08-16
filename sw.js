@@ -2,7 +2,7 @@
 const staticFiles = [
   '/',
   '/app.js',
-  'https://fonts.googleapis.com/css?family=Nunito:200,600',
+  'https://fonts.googleapis.com/css?family=Roboto&display=swap',
   'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css',
   'https://code.jquery.com/jquery-3.4.1.min.js',
   'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',
