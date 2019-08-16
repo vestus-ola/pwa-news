@@ -24,11 +24,11 @@
   <!-- reuse same icon for Safari -->
   <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous" media="all">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"
+    media="all">
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css" media="all">
-
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
   <!-- Custom CSS -->
   <link type="text/css" rel="stylesheet" href="assets/css/style.min.css" media="all">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -37,9 +37,16 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <noscript><h4 style="text-align:center;font-family: system-ui, sans-serif">
-      Sorry, JavaScript needs to be enabled in order to run this application.</h4>
-      </noscript>
+  <style>
+    html,
+    body {
+      font-family: Roboto, sans-serif;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #333;
+      background-color: #fff;
+    }
+  </style>
 </head>
 
 <body>
@@ -92,6 +99,10 @@
       </div>
     </div>
   </section>
+  <noscript>
+    <h4 style="text-align:center;font-family: system-ui, sans-serif">
+      Sorry, JavaScript needs to be enabled in order to run this application.</h4>
+  </noscript>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <!-- Latest compiled and minified JavaScript -->
