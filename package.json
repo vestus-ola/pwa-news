@@ -1,9 +1,0 @@
-{
-    "name": "news-pwa",
-    "description": "A simple PWA NEWS application",
-    "author": {
-        "name": "Oyeleye Festus Olatunbosun",
-        "email": "oyeleyeolatunbosunfestus@gmail.com"
-    },
-    "license": "MIT"
-}

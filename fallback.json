@@ -1,15 +1,15 @@
 {
-    "articles":[
-        {
-            "title": "You are currently offline.",
-            "urlToImage": "images/offline.png",
-            "description": "Please check your internet connection and try again.",
-            "author": "Network Error",
-            "source":{
-                "id":"",
-                "name":"offline"
-            },
-            "url": "javascript:void(0)"
-        }
-    ]
+  "articles": [
+    {
+      "title": "You are currently offline.",
+      "urlToImage": "images/offline.png",
+      "description": "Please check your internet connection and try again.",
+      "author": "Network Error",
+      "source": {
+        "id": "",
+        "name": "offline"
+      },
+      "url": "javascript:void(0)"
+    }
+  ]
 }
